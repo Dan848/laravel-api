@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section("title")
 Index
 @endsection
@@ -31,7 +30,10 @@ Index
                     <tr>
                         <th scope="row">{{$project->name}}</th>
                         <td><div class="img-preview"><img class="img-fluid" src="{{$project->image}}" alt=""></div></td>
-                        <td>{{$project->created_on}}</td>
+                        @php
+
+                        @endphp
+                        <td>{{ formatDate($project->created_on) }}</td>
                         <td class="gap-2">
                             <a class="btn btn-primary" href="{{ route("admin.projects.show", $project->slug) }}"><i class="fa-solid fa-eye"></i></a>
                             <a class="btn btn-secondary" href="{{ route("admin.projects.edit", $project->slug) }}"><i class="fa-solid fa-pencil"></i></a>
