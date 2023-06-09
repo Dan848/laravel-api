@@ -1,7 +1,7 @@
 @extends('layouts.nav ')
 
 @section('content')
-<body class="bg-primary">
+<body class="bg-secondary">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -63,7 +63,7 @@
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    <div class="small"><a href="{{ route('login') }}">Have an account? Go to login</a></div>
+                                    <div class="small"><a class="text-secondary" href="{{ route('login') }}">Have an account? Go to login</a></div>
                                 </div>
                             </div>
                         </div>

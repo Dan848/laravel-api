@@ -1,7 +1,7 @@
 @extends('layouts.nav')
 
 @section('content')
-<body class="bg-primary">
+<body class="bg-secondary">
     <div id="layoutAuthentication">
         <div id="layoutAuthentication_content">
             <main>
@@ -43,14 +43,14 @@
                                         <!-- FORGOT PASSWORD & LOGIN -->
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             @if (Route::has('password.request'))
-                                            <a class="small" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
+                                            <a class="small text-secondary" href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
                                             @endif
                                             <button class="btn btn-primary" type="submit">{{ __('Login') }}</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    <div class="small"><a href="{{ route('register') }}">{{ __('Register') }}</a></div>
+                                    <a class="small text-secondary" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </div>
                             </div>
                         </div>

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title', "Project D")</title>
 
 
     <!-- Fonts -->
@@ -22,9 +22,11 @@
     <div id="app">
 
         {{-- NAVBAR --}}
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-secondary">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="{{ url('/') }}">{{ Auth::user()->name }}</a>
+            <a class="navbar-brand ps-3 fw-medium hover-scale" href="{{ url('/') }}">Project
+                <span><img src="/img/logo.png" alt="logo" width="25px" height="25px"></span>
+                </a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -65,7 +67,7 @@
         {{-- SIDEBAR --}}
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <nav class="sb-sidenav accordion sb-sidenav-light bg-secondary-subtle" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
@@ -74,15 +76,15 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="{{ route("admin.projects.index") }}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                                Progetti
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Static Navigation</a>
-                                    <a class="nav-link" href="#">Light Sidenav</a>
+                                    <a class="nav-link" href="{{ route("admin.projects.index") }}">Tutti i Progetti</a>
+                                    <a class="nav-link" href="{{ route("admin.projects.create") }}">Aggiungi Nuovo</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -127,9 +129,9 @@
                             </a>
                         </div>
                     </div>
-                    <div class="sb-sidenav-footer">
+                    <div class="sb-sidenav-footer bg-primary">
                         <div class="small">Logged in as:</div>
-                        {{ Auth::user()->name }}
+                        <span class="fw-medium">{{ Auth::user()->name }}</span>
                     </div>
                 </nav>
             </div>

@@ -8,12 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <title>@yield('title', "Project D")</title>
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -21,17 +16,16 @@
 <body>
     <div id="app">
 
-
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <nav class="sb-topnav navbar navbar-expand navbar-light bg-primary">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="{{ url('/') }}">Start Bootstrap</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <a class="navbar-brand ms-3 p-2 fw-medium hover-scale" href="{{ url('/') }}">Project
+            <span><img src="/img/logo.png" alt="logo" width="25px" height="25px"></span>
+            </a>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                    <button class="btn btn-secondary hover-invert" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
             <!-- Navbar DropDown-->
@@ -39,11 +33,11 @@
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    <a class="nav-link active hover-invert" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
                 @if (Route::has('register'))
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    <a class="nav-link active hover-invert" href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
                 @endif
                 @else

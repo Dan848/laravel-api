@@ -15,12 +15,13 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('repo', 150)->unique();
+            $table->string('repo_name', 150)->unique();
+            $table->string('repo_link')->unique();
             $table->string('slug')->unique();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('thumbnail')->nullable();
-            $table->date("created_on")->format("d/m/Y");
+            $table->string('image')->default("/img/img_not_found.jpg");
+            $table->date("created_on");
             $table->timestamps();
         });
     }
