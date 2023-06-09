@@ -8,7 +8,7 @@ Index
     <h1 class="mt-4 text-center">Progetti</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
+        <li class="breadcrumb-item active">Progetti</li>
     </ol>
     <div class="card mb-4">
         <div class="card-header">
@@ -40,7 +40,7 @@ Index
                             <form class="d-inline" action="{{ route("admin.projects.destroy", $project->slug) }}" method="POST">
                                 @method("DELETE")
                                 @csrf
-                                <button class="btn btn-danger" type="submit"><i class="fa-solid fa-eraser"></i></button>
+                                <button class="btn btn-danger delete-button" data-item-title="{{$project->name}}" type="submit"><i class="fa-solid fa-eraser"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -51,4 +51,5 @@ Index
         </div>
     </div>
 </div>
+@include("partials.delete-modal")
 @endsection

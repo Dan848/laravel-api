@@ -16,7 +16,7 @@ Edit
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
         <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
-        <li class="breadcrumb-item"><a href="{{ route("admin.projects.edit", $project->slug) }}">Modifica {{$project->name}}</a></li>
+        <li class="breadcrumb-item">Modifica {{$project->name}}</li>
     </ol>
 </div>
 <div class="container">

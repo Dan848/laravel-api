@@ -8,7 +8,7 @@ Dashboard
 <div class="container-fluid px-4">
     <h1 class="mt-4">Dashboard</h1>
     <ol class="breadcrumb mb-4">
-        <li><a class="breadcrumb-item active" href="{{ route("admin.dashboard") }}">Dashboard</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
     </ol>
     <div class="col-auto">
         <div class="card mb-4">

@@ -12,7 +12,7 @@ Create
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
-            <li class="breadcrumb-item"><a href="{{ route("admin.projects.create") }}">Aggiungi</a></li>
+            <li class="breadcrumb-item active">Aggiungi</li>
         </ol>
 </div>
 

@@ -6,17 +6,18 @@ Show
 
 @section('content')
 <div class="container mt-5 mb-3">
-    <div class="d-flex flex-column align-items-center">
-        <h1 class="mb-4">{{$project->name}}</h1>
-        <div class="img-show mb-4">
-            <img class="img-fluid" src="{{$project->image}}" alt="{{$project->name}}">
-        </div>
-        <div>
-            <p>{{$project->description}}</p>
-        </div>
-    </div>
 
-    <div class="row">
+    <h1 class="mb-4n text-center">{{$project->name}}</h1>
+    <ol class="breadcrumb mb-4" style="order: -1;">
+        <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
+        <li class="breadcrumb-item active">{{$project->name}}</li>
+    </ol>
+    <div class="img-show d-flex justify-content-center mb-4">
+        <img class="img-fluid" src="{{$project->image}}" alt="{{$project->name}}">
+    </div>
+        <p>{{$project->description}}</p>
+    <div class="row mt-5">
         <div class="col">
             <p>Nome Repository: <span class="fw-medium">{{$project->repo_name}}</span></p>
             <p>Link Repository: <a href="{{$project->repo_link}}" class="fw-medium text-secondary">{{$project->repo_link}}</a><p>
@@ -30,8 +31,9 @@ Show
         <form action="{{ route("admin.projects.destroy", $project->slug) }}" method="POST">
             @method("DELETE")
             @csrf
-            <button class="btn btn-danger" type="submit"><i class="fa-solid fa-eraser"></i></button>
+            <button class="btn btn-danger delete-button" data-item-title="{{$project->name}}" type="submit"><i class="fa-solid fa-eraser"></i></button>
         </form>
     </div>
 </div>
+@include("partials.delete-modal")
 @endsection

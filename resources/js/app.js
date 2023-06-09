@@ -23,3 +23,29 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+const deleteSubButton = document.querySelectorAll(".delete-button");
+
+deleteSubButton.forEach((button)=> {
+    button.addEventListener("click", (event) =>{
+        event.preventDefault();
+
+        const itemTitle = button.getAttribute("data-item-title");
+
+        const modal = document.getElementById("deleteModal");
+        console.log(itemTitle);
+
+        const bootstrapModal = new bootstrap.Modal(modal);
+        bootstrapModal.show();
+
+        console.log("click1");
+        const deleteModalItemTitle = modal.querySelector("#deleteModalItemTitle");
+        deleteModalItemTitle.textContent = itemTitle;
+        console.log("click2");
+
+        const deleteModalButton = document.querySelector(".delete-modal-button");
+        deleteModalButton.addEventListener("click", () => {
+            button.parentElement.submit()
+        });
+    })
+})
