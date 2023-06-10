@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section("title")
-Create
+Aggiungi nuovo Progetto
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@ Create
         </ol>
 </div>
 
-    <div class="container">
+    <div class="container mb-4">
         <div class="row">
             <div class="col">
                 <form class="container" method="POST" action="{{ route("admin.projects.store") }}" enctype="multipart/form-data">

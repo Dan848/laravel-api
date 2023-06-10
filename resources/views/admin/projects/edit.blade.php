@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section("title")
-Edit
+Modifica {{$project->name}}
 @endsection
 
 @section('content')

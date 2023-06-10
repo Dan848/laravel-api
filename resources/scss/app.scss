@@ -18,6 +18,10 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+a{
+    color: $secondary;
+}
+
 .hover-invert{
     filter: invert(0);
     transition: filter 0.3s ease;
@@ -31,8 +35,18 @@ body{
     transition: transform 0.3s ease;
     backface-visibility: hidden;
     &:hover{
-        transform: scale(1.2);
+        transform: scale(1.1);
         backface-visibility: hidden;
+    }
+}
+
+//Navbar Admin
+.sb-topnav.navbar-dark{
+    div{
+        color: white;
+    }
+    a{
+        color: white;
     }
 }
 
@@ -45,11 +59,11 @@ body{
 .img-preview{
     max-width: 300px;
 }
-
 .img-show {
     max-width: 1000px;
 }
 
+//Form Modify
 .form-floating{
     > label{
         top: -8px;
@@ -62,8 +76,8 @@ body{
         border-bottom: 2px solid $primary;
         border-radius: 0;
         &:focus{
-            border: 0.25rem solid $primary;
-            box-shadow: none;
+            border-bottom: 0px solid $primary;
+            box-shadow: 0 0 0.8rem 0.25rem $primary;
         }
 
     }
@@ -187,6 +201,12 @@ padding-top: 56px;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
 overflow-y: auto;
+    div{
+        color: white;
+    }
+    a{
+        color: white;
+    }
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_content {
 padding-left: 225px;
@@ -214,7 +234,7 @@ height: 56px;
 z-index: 1039;
 }
 .sb-topnav.navbar-dark #sidebarToggle {
-color: rgba(255, 255, 255, 0.5);
+color: rgba(255, 255, 255, 1);
 }
 .sb-topnav.navbar-light #sidebarToggle {
 color: #212529;
