@@ -6,7 +6,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/html-css-toboolist',
             'name' => 'To BooList Layout',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/to-boo-list.jpg',
             'created_on' => '2023-01-31',
         ],
         [
@@ -14,7 +14,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/htmlcss-discord',
             'name' => 'Discord Layout',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/discord.jpg',
             'created_on' => '2023-02-07',
         ],
         [
@@ -22,7 +22,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/htmlcss-dropbox',
             'name' => 'Dropbox Layout',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/dropbox.jpg',
             'created_on' => '2023-02-13',
         ],
         [
@@ -30,7 +30,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/html-css-spotifyweb',
             'name' => 'Spotifyweb Layout',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/spotify.jpg',
             'created_on' => '2023-02-22',
         ],
         [
@@ -38,7 +38,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/html-css-bootstrap-dashboard',
             'name' => 'Bootstrap Dashboard Layout',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/bootstrap-dashboard.jpg',
             'created_on' => '2023-03-01',
         ],
         [
@@ -46,7 +46,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/js-campominato-dom',
             'name' => 'Campo Minato Javascript',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/campo-minato.jpg',
             'created_on' => '2023-03-21',
         ],
         [
@@ -54,7 +54,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/vue-todolist',
             'name' => 'To Duck List Vue',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/to-duck-list.jpg',
             'created_on' => '2023-03-30',
         ],
         [
@@ -62,7 +62,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/vue-boolzapp',
             'name' => 'Boolzapp Vue',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/boolzapp.jpg',
             'created_on' => '2023-04-11',
         ],
         [
@@ -70,7 +70,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/vite-boolflix',
             'name' => 'Boolflix Vite',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/boolflix.jpg',
             'created_on' => '2023-04-26',
         ],
         [
@@ -78,7 +78,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/proj-html-vuejs',
             'name' => 'Anidio Page',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/anidio.jpg',
             'created_on' => '2023-04-28',
         ],
         [
@@ -86,7 +86,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/php-badwords',
             'name' => 'Badwords Php',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/badwords.jpg',
             'created_on' => '2023-04-28',
         ],
         [
@@ -94,7 +94,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/php-todo-list-json',
             'name' => 'To Duck List Php',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/to-duck-list.jpg',
             'created_on' => '2023-05-04',
         ],
         [
@@ -102,7 +102,7 @@ return [
             'repo_link' => 'https://github.com/Dan848/laravel-comics',
             'name' => 'Dc Comics Laravel',
             'description' => 'Descrizione',
-            'image' => '/img/img_not_found.jpg',
+            'image' => '/img/comics.jpg',
             'created_on' => '2023-05-09',
         ],
     ],

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8">
@@ -18,7 +18,7 @@
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="background-color: #252729">
     <div id="app">
 
         {{-- NAVBAR --}}

@@ -1,21 +1,25 @@
 @extends('layouts.admin')
 
 @section("title")
-{{$project->name}}
+Show
 @endsection
 
 @section('content')
 <div class="container mt-5 mb-3">
-
-    <h1 class="mb-4n text-center">{{$project->name}}</h1>
-    <ol class="breadcrumb mb-4" style="order: -1;">
-        <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
-        <li class="breadcrumb-item active">{{$project->name}}</li>
-    </ol>
-    <div class="img-show d-flex justify-content-center mb-4">
-        <img class="img-fluid" src="{{$project->image}}" alt="{{$project->name}}">
+    <div class="d-flex flex-column  align-items-center">
+        <h1 class="mb-4n text">{{$project->name}}</h1>
+        <div class="align-self-start">
+            <ol class="breadcrumb mb-4" style="order: -1;">
+                <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
+                <li class="breadcrumb-item active">{{$project->name}}</li>
+            </ol>
+        </div>
+        <div class="img-show mb-4">
+            <img class="img-fluid" src="{{$project->image}}" alt="{{$project->name}}">
+        </div>
     </div>
+
         <p>{{$project->description}}</p>
     <div class="row mt-5">
         <div class="col">

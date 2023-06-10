@@ -15,11 +15,12 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 //GENERAL
 body{
+    color: white;
     font-family: 'Roboto', sans-serif;
 }
 
 a{
-    color: $secondary;
+    color: $primary;
 }
 
 .hover-invert{
@@ -101,20 +102,19 @@ a{
     list-style: none;
     background-color: var(--bs-breadcrumb-bg);
     border-radius: var(--bs-breadcrumb-border-radius);
-  }
-
-  .breadcrumb-item + .breadcrumb-item {
+}
+.breadcrumb-item + .breadcrumb-item {
     padding-left: var(--bs-breadcrumb-item-padding-x);
   }
-  .breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item + .breadcrumb-item::before {
     float: left;
     padding-right: var(--bs-breadcrumb-item-padding-x);
     color: var(--bs-breadcrumb-divider-color);
     content: var(--bs-breadcrumb-divider, "/") /* rtl: var(--bs-breadcrumb-divider, "/") */;
   }
-  .breadcrumb-item.active {
+.breadcrumb-item.active {
     color: var(--bs-breadcrumb-item-active-color);
-  }
+}
 .fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
 position: fixed;
 top: 0;
