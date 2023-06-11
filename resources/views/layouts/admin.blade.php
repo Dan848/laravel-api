@@ -18,7 +18,7 @@
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
-<body class="sb-nav-fixed" style="background-color: #252729">
+<body class="sb-nav-fixed bg-dark text-bg-dark">
     <div id="app">
 
         {{-- NAVBAR --}}

@@ -16,13 +16,13 @@ Modifica {{$project->name}}
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
         <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
-        <li class="breadcrumb-item">Modifica {{$project->name}}</li>
+        <li class="breadcrumb-item active">Modifica {{$project->name}}</li>
     </ol>
 </div>
 <div class="container">
     <div class="row">
         <div class="col">
-            <form class="container" method="POST" action="{{ route("admin.projects.update", $project->slug) }}" enctype="multipart/form-data">
+            <form class="container form-crud" method="POST" action="{{ route("admin.projects.update", $project->slug) }}" enctype="multipart/form-data">
                 @method("PUT")
                 @csrf
                 {{-- Errors Section --}}
@@ -78,7 +78,7 @@ Modifica {{$project->name}}
                     <div class="col-12 col-md-6">
                         <div class="form-floating mb-3">
                             <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" autofocus>
-                            <label class="mb-5" for="image">Anteprima Immagine</label>
+                            <label for="image">Anteprima Immagine</label>
                         </div>
                     </div>
                     <div class="col-12 col-md-6">
@@ -91,6 +91,7 @@ Modifica {{$project->name}}
                 <!-- DESCRIPTION -->
                 <div class="form-floating mb-3">
                     <textarea id="description" class="form-control h-100 @error('description') is-invalid @enderror" name="description" rows="4" cols="3" autofocus>{{ $project->description }}</textarea>
+                    <label for="description">Descrizione</label>
                 </div>
                 <!-- SAVE and RESET -->
                 <div class="d-flex align-items-center justify-content-center mt-4 mb-0">

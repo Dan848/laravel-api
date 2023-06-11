@@ -19,7 +19,7 @@ Aggiungi nuovo Progetto
     <div class="container mb-4">
         <div class="row">
             <div class="col">
-                <form class="container" method="POST" action="{{ route("admin.projects.store") }}" enctype="multipart/form-data">
+                <form class="container form-crud" method="POST" action="{{ route("admin.projects.store") }}" enctype="multipart/form-data">
                     @csrf
                     {{-- Errors Section --}}
                     @if ($errors->any())
@@ -86,9 +86,10 @@ Aggiungi nuovo Progetto
                     </div>
                     <!-- DESCRIPTION -->
                     <div class="form-floating mb-3">
-                        <textarea id="description" class="form-control h-100 @error('description') is-invalid @enderror" name="description" rows="4" autofocus>Descrizione</textarea>
+                        <textarea id="description" class="form-control h-100 @error('description') is-invalid @enderror" name="description" rows="4" autofocus></textarea>
+                        <label for="description">Descrizione</label>
                     </div>
-                    <!-- SAVE and RESET -->
+                    <!-- SAVE & RESET -->
                     <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
                         <button class="btn btn-secondary me-2" type="reset">Reset</button>
                         <button class="btn btn-primary ms-2" type="submit">Aggiungi</button>

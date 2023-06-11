@@ -30,7 +30,7 @@ Progetti
                     @foreach ($projects as $project)
                     <tr class="align-middle">
                         {{-- Name --}}
-                        <th class="h5" scope="row">{{$project->name}}</th>
+                        <th scope="row"><a class="h5 text-decoration-none" href="{{ route("admin.projects.show", $project) }}">{{$project->name}}</a></th>
                         {{-- Image --}}
                         <td class="d-none d-sm-table-cell"><a href="{{ route("admin.projects.show", $project) }}" class="d-block img-preview"><img class="img-fluid" src="{{$project->image}}" alt=""></a></td>
                         {{-- Date --}}

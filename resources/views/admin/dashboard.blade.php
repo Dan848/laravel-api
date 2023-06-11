@@ -16,7 +16,7 @@ Dashboard
                 <i class="fas fa-chart-bar me-1"></i>
                 Dashboard
             </div>
-            <div class="card-body"><a class="text-secondary" href="{{ route("admin.projects.index") }}">Vedi tutti i Progetti</a></div>
+            <div class="card-body"><a href="{{ route("admin.projects.index") }}">Vedi tutti i Progetti</a></div>
             <div class="card-footer small text-muted">Updated</div>
         </div>
     </div>

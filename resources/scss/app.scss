@@ -65,22 +65,45 @@ a{
 }
 
 //Form Modify
+
+
+// FORM EDIT AND CREATE COLOR
+// .form-crud {
+//     background-color: #323539;
+//     padding: 1rem;
+//     border-radius: 10px;
+//     .form-floating{
+//         background-color: #323539;
+//         input, textarea{
+//             background-color: #323539;
+//         };
+//         > label{
+
+//         }
+//     }
+// }
+
 .form-floating{
     > label{
-        top: -8px;
+        top: -5px;
+        &::after{
+            background-color: transparent!important;
+        }
     }
 
     .form-control {
         border-top: none;
         border-left: none;
         border-right: none;
-        border-bottom: 2px solid $primary;
+        border-bottom: 0px solid $primary;
         border-radius: 0;
+        box-shadow: 0 2px 0 0 $primary;
         &:focus{
-            border-bottom: 0px solid $primary;
-            box-shadow: 0 0 0.8rem 0.25rem $primary;
+            border: 0px solid $primary;
+            box-shadow: 0 0 0 2px $primary;
+            // border-bottom: 0px solid $primary;
+            // box-shadow: 0 0 0.8rem 0.25rem $primary;
         }
-
     }
 }
 
