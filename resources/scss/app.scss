@@ -15,7 +15,9 @@ $fa-font-path: "../fonts/webfonts" !default;
 
 //GENERAL
 body{
-    color: white;
+    &.bg-dark{
+        color: white;
+    }
     font-family: 'Roboto', sans-serif;
 }
 
