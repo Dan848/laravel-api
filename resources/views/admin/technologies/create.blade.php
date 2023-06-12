@@ -19,7 +19,7 @@ Nuova Tecnologia
     <div class="container mb-4">
         <div class="row">
             <div class="col">
-                <form class="container form-crud" method="POST" action="{{ route("admin.projects.store") }}" enctype="multipart/form-data">
+                <form class="container form-crud" method="POST" action="{{ route("admin.technologies.store") }}" enctype="multipart/form-data">
                     @csrf
                     {{-- Errors Section --}}
                     @if ($errors->any())
