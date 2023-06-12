@@ -10,7 +10,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <p>Stai per <span class="fw-medium text-danger">ELIMINARE</span> il progetto <span class="fw-bolder" id="deleteModalItemTitle"></span>?</p>
+            <p>Sicuro di voler eliminare <span class="fw-medium text-danger">ELIMINARE</span> <span class="fw-bolder" id="deleteModalItemTitle"></span>?</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>

@@ -61,6 +61,9 @@ a{
 //Dashboard
 .img-preview{
     max-width: 300px;
+    &.logo{
+        max-width: 100px;
+    }
 }
 .img-show {
     max-width: 1000px;

@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use app\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use App\Models\Technology;
 use App\Http\Requests\StoreTechnologyRequest;
 use App\Http\Requests\UpdateTechnologyRequest;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class TechnologyController extends Controller
 {
@@ -16,7 +18,8 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        //
+        $technologies = Technology::paginate(10);
+        return view("admin.technologies.index", compact("technologies"));
     }
 
     /**
@@ -26,18 +29,26 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.technologies.create");
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreTechnologyRequest  $request
-e
+
      */
     public function store(StoreTechnologyRequest $request)
     {
-        //
+        $data = $request->validated();
+        $data["slug"] = Str::slug($request->name, "-");
+        if($request->hasFile("image")){
+            $img_path = Storage::put ("uploads", $request->image);
+            $data["image"] = asset("storage/" . $img_path);
+        }
+
+        $newTechnology = Technology::create($data);
+        return redirect()->route("admin.technologies.show", $newTechnology->slug);
     }
 
     /**
@@ -48,7 +59,7 @@ e
      */
     public function show(Technology $technology)
     {
-        //
+        return view("admin.technologies.show", compact("technology"));
     }
 
     /**
@@ -59,7 +70,7 @@ e
      */
     public function edit(Technology $technology)
     {
-        //
+        return view("admin.technologies.edit", compact("technology"));
     }
 
     /**
@@ -71,7 +82,18 @@ e
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
-        //
+        $data = $request->validated();
+        $data["slug"] = Str::slug($request->repo_name, "-");
+
+        if ($request->hasFile("image")){
+            if ($technology->image) {
+                Storage::delete($technology->image);
+            }
+            $img_path = Storage::put("uploads", $request->image);
+            $data["image"] = asset("storage/" . $img_path);
+        }
+        $technology->update($data);
+        return redirect()->route("admin.technologies.show",$technology->slug)->with("message", "$technology->name è stato modificato con successo");
     }
 
     /**
@@ -82,6 +104,10 @@ e
      */
     public function destroy(Technology $technology)
     {
-        //
+        if ($technology->image) {
+            Storage::delete($technology->image);
+        }
+        $technology->delete();
+        return redirect()->route("admin.technologies.index")->with("message", "$technology->name è stato eliminato con successo");
     }
 }

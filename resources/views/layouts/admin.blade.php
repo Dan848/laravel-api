@@ -76,15 +76,26 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">File</div>
-                            <a class="nav-link collapsed" href="{{ route("admin.projects.index") }}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="{{ route("admin.projects.index") }}" data-bs-toggle="collapse" data-bs-target="#collapseProjects" aria-expanded="false" aria-controls="collapseProjects">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-open"></i></div>
                                 Progetti
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseProjects" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ route("admin.projects.index") }}">Tutti i Progetti</a>
                                     <a class="nav-link" href="{{ route("admin.projects.create") }}">Aggiungi Nuovo</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="{{ route("admin.technologies.index") }}" data-bs-toggle="collapse" data-bs-target="#collapseTechnology" aria-expanded="false" aria-controls="collapseTechnology">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-open"></i></div>
+                                Tecnologie
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseTechnology" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route("admin.technologies.index") }}">Tutte le Tecnologie</a>
+                                    <a class="nav-link" href="{{ route("admin.technologies.create") }}">Aggiungi Nuova</a>
                                 </nav>
                             </div>
                         </div>

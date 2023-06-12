@@ -78,10 +78,9 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-
         $data = $request->validated();
-        // $data["created_on"] = Carbon::createFromFormat('d-m-Y', $request->created_on)->format('Y-m-d');
         $data["slug"] = Str::slug($request->repo_name, "-");
+
         if ($request->hasFile("image")){
             if ($project->image) {
                 Storage::delete($project->image);
@@ -104,6 +103,6 @@ class ProjectController extends Controller
             Storage::delete($project->image);
         }
         $project->delete();
-        return redirect()->route("admin.dashboard")->with("message", "$project->name è stato eliminato con successo");
+        return redirect()->route("admin.projects.index")->with("message", "$project->name è stato eliminato con successo");
     }
 }
