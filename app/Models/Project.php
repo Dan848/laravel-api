@@ -13,4 +13,8 @@ class Project extends Model
     public function technology(){
         return $this->belongsTo(Technology::class);
     }
+
+    public function dev_languages(){
+        return $this->belongsToMany(Dev_Language::class);
+    }
 }

@@ -9,11 +9,22 @@
 
     <h1 class="mb-4 text-center">{{$project->name}}</h1>
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <ol class="breadcrumb mb-4" style="order: -1;">
-            <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
-            <li class="breadcrumb-item active">{{$project->name}}</li>
-        </ol>
+        <div class="">
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
+                <li class="breadcrumb-item active">{{$project->name}}</li>
+            </ol>
+            <div>
+                @if($project->dev_languages->count() > 0)
+                Linguaggi utilizzati:
+                @foreach ($project->dev_languages as $languages)
+                    <span class="badge rounded-pill text-bg-light">{{$languages->name}}</span>
+                @endforeach
+                @endif
+            </div>
+        </div>
+
         <div class="img-box logo">
             @isset($project->technology->image)
             <img class="img-fluid" src="{{ $project->technology->image }}" alt="{{ $project->technology->name }}">
@@ -31,7 +42,7 @@
     <div class="row mt-5">
         <div class="col">
             <p>Nome Repository: <span class="fw-medium">{{$project->repo_name}}</span></p>
-            <p>Link Repository: <a href="{{$project->repo_link}}" class="fw-medium text-secondary">{{$project->repo_link}}</a><p>
+            <p>Link Repository: <a href="{{$project->repo_link}}" class="fw-medium">{{$project->repo_link}}</a><p>
         </div>
         <div class="col text-end">
             <p class="fw-medium">{{$project->fe_be_oriented ? "Front-end" : "Back-end"}}</p>

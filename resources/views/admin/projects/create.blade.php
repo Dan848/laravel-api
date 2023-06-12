@@ -44,8 +44,20 @@ Nuovo Progetto
                             <p>*{{ $message }}</p>
                         @enderror
 
+                        @error('technology_id')
+                        <p>*{{ $message }}</p>
+                        @enderror
+
+                        @error('fe_be_oriented')
+                        <p>*{{ $message }}</p>
+                        @enderror
+
                         @error('description')
                             <p>*{{ $message }}</p>
+                        @enderror
+
+                        @error('dev_languages')
+                        <p>*{{ $message }}</p>
                         @enderror
                     </div>
                     @endif
@@ -114,6 +126,19 @@ Nuovo Progetto
                     <div class="form-floating mb-3">
                         <textarea id="description" class="form-control h-100 @error('description') is-invalid @enderror" name="description" rows="4" autofocus></textarea>
                         <label for="description">Descrizione</label>
+                    </div>
+                    <!-- DEV_LANGUAGES -->
+                    <div class="text-center mb-3 mt-4">
+                        Linguaggi utilizzati:
+                    </div>
+                    <div class="d-flex justify-content-evenly align-items-center">
+                        @foreach ($dev_languages as $dev_language)
+                        <div class="form-check form-check-inline">
+                            <input type="checkbox" name="dev_language[]" value="{{ $dev_language->id }}" class="form-check-input"
+                                {{ in_array($dev_language->id, old('dev_languages', [])) ? 'checked' : '' }}>
+                            <label for="" class="form-check-label">{{ $dev_language->name }}</label>
+                        </div>
+                        @endforeach
                     </div>
                     <!-- SAVE & RESET -->
                     <div class="d-flex align-items-center justify-content-center mt-4 mb-0">

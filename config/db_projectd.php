@@ -166,4 +166,27 @@ return [
             "image" => "/img/technologies/laravel.png",
         ],
     ],
+    "dev_languages" => [
+        [
+            "name" => "HTML",
+            "image" => "/img/technologies/html5.png",
+        ],
+        [
+            "name" => "CSS",
+            "image" => "/img/technologies/css3.png",
+        ],
+        [
+            "name" => "Sass",
+            "image" => "/img/technologies/sass.png",
+        ],
+        [
+            "name" => "Javascript",
+            "image" => "/img/technologies/javascript.png",
+        ],
+        [
+            "name" => "PHP",
+            "image" => "/img/technologies/php.png",
+        ],
+
+    ]
 ];

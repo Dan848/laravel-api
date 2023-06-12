@@ -124,6 +124,24 @@ Modifica {{$project->name}}
                     <textarea id="description" class="form-control h-100 @error('description') is-invalid @enderror" name="description" rows="4" cols="3" autofocus>{{ $project->description }}</textarea>
                     <label for="description">Descrizione</label>
                 </div>
+                <!-- DEV_LANGUAGES -->
+                <div class="text-center mb-3 mt-4">
+                    Linguaggi utilizzati:
+                </div>
+                <div class="d-flex justify-content-evenly align-items-center">
+                    @foreach ($dev_languages as $dev_language)
+                    <div class="form-check form-check-inline">
+                        @if ($errors->any())
+                            <input type="checkbox" name="dev_languages[]" value="{{ $dev_language->id }}" class="form-check-input"
+                                {{ in_array($dev_language->id, old('dev_languages', [])) ? 'checked' : '' }}>
+                        @else
+                            <input type="checkbox" name="dev_languages[]" value="{{ $dev_language->id }}" class="form-check-input"
+                                {{ $project->dev_languages->contains($dev_language) ? 'checked' : '' }}>
+                        @endif
+                        <label for="" class="form-check-label">{{ $dev_language->name }}</label>
+                    </div>
+                    @endforeach
+                </div>
                 <!-- SAVE and RESET -->
                 <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
                     <button class="btn btn-secondary me-2" type="reset">Reset</button>

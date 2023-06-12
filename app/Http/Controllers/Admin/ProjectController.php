@@ -8,9 +8,9 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Dev_Language;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-use Termwind\Components\Dd;
 
 class ProjectController extends Controller
 {
@@ -30,8 +30,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $dev_languages = Dev_Language::all();
         $technologies = Technology::all();
-        return view("admin.projects.create", compact("technologies"));
+        return view("admin.projects.create", compact("technologies", "dev_languages"));
     }
 
     /**
@@ -43,13 +44,19 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $data = $request->validated();
+        //Add Slug
         $data["slug"] = Str::slug($request->repo_name, "-");
+        //Store Image
         if($request->hasFile("image")){
             $img_path = Storage::put ("uploads", $request->image);
             $data["image"] = asset("storage/" . $img_path);
         }
-
         $newProject = Project::create($data);
+
+            //Attach Foreign data from another table
+            if ($request->has("dev_languages")){
+                $newProject->dev_languages()->attach($request->dev_languages);
+            }
         return redirect()->route("admin.projects.show", $newProject->slug);
     }
 
@@ -71,7 +78,8 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $technologies = Technology::all();
-        return view("admin.projects.edit", compact("project", "technologies"));
+        $dev_languages = Dev_Language::all();
+        return view("admin.projects.edit", compact("project", "technologies", "dev_languages"));
     }
 
     /**
@@ -92,6 +100,14 @@ class ProjectController extends Controller
             $data["image"] = asset("storage/" . $img_path);
         }
         $project->update($data);
+
+            //Attach Foreign data from another table
+            if ($request->has("dev_languages")){
+                $project->dev_languages()->sync($request->dev_languages);
+            }
+            else {
+                $project->sync([]);
+            }
         return redirect()->route("admin.projects.show",$project->slug)->with("message", "$project->name è stato modificato con successo");
     }
 
