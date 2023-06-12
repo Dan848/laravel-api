@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section("title")
-Show
+{{$project->name}}
 @endsection
 
 @section('content')

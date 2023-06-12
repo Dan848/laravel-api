@@ -1,18 +1,18 @@
 @extends('layouts.admin')
 
 @section("title")
-Aggiungi nuovo Progetto
+Nuovo Progetto
 @endsection
 
 @section('content')
 <div class="container mb-5">
     <h2 class="mt-5 mb-4 text-center">
-        Aggiungi un nuovo Progetto
+        Nuovo Progetto
     </h2>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
-            <li class="breadcrumb-item active">Aggiungi</li>
+            <li class="breadcrumb-item active">Nuovo Progetto</li>
         </ol>
 </div>
 

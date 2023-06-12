@@ -13,7 +13,7 @@ class UpdateTechnologyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class UpdateTechnologyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "name" => ["required", "max:150"],
+            'image' => ['nullable'],
+        ];
+    }
+
+        public function messages() {
+        return [
+                'name.required' => 'Il campo Nome è obbligatorio.',
+                'name.max' => 'Il campo Nome deve contenere al massimo :max caratteri.',
+                'image' => 'Il campo Immagine da errore',
         ];
     }
 }

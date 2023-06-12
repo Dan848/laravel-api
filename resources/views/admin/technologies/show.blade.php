@@ -1,42 +1,63 @@
 @extends('layouts.admin')
-
 @section("title")
-Show
+{{$technology->name}}
 @endsection
 
 @section('content')
-<div class="container mt-5 mb-3">
-    <div class="d-flex flex-column  align-items-center">
-        <h1 class="mb-4n text">{{$project->name}}</h1>
-        <div class="align-self-start">
-            <ol class="breadcrumb mb-4" style="order: -1;">
-                <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route("admin.projects.index") }}">Progetti</a></li>
-                <li class="breadcrumb-item active">{{$project->name}}</li>
-            </ol>
-        </div>
-        <div class="img-show mb-4">
-            <img class="img-fluid" src="{{$project->image}}" alt="{{$project->name}}">
-        </div>
-    </div>
+<div class="container-fluid px-4">
+    <h1 class="mt-4 text-center">{{$technology->name}}</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{{ route("admin.dashboard") }}">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="{{ route("admin.technologies.index") }}">Tecnologie</a></li>
+        <li class="breadcrumb-item active">{{$technology->name}}</li>
+    </ol>
+    <div class="card text-bg-dark mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div><i class="fa-solid fa-folder-open me-1"></i>Progetti</div>
+            <a class="btn btn-primary fw-medium d-flex align-items-center" href="{{ route("admin.projects.create") }}"><i class="fa-regular fa-plus me-1 text-secondary fs-5 vertical-center fw-bolder"></i>Aggiungi</a>
 
-        <p>{{$project->description}}</p>
-    <div class="row mt-5">
-        <div class="col">
-            <p>Nome Repository: <span class="fw-medium">{{$project->repo_name}}</span></p>
-            <p>Link Repository: <a href="{{$project->repo_link}}" class="fw-medium text-secondary">{{$project->repo_link}}</a><p>
         </div>
-        <div class="col text-end">
-            <p>Realizzato il: <span class="fw-medium">{{$project->created_on}}</span></p>
+        <div class="card-body">
+            <table class="table table-dark table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th class="d-none d-sm-table-cell" scope="col">Anteprima</th>
+                        <th class="d-none d-lg-table-cell" scope="col">Realizzato</th>
+                        <th scope="col">Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($technology->project as $project)
+                    <tr class="align-middle">
+                        {{-- Name --}}
+                        <th scope="row"><a class="h5 text-decoration-none" href="{{ route("admin.projects.show", $project) }}">{{$project->name}}</a></th>
+                        {{-- Image --}}
+                        <td class="d-none d-sm-table-cell"><a href="{{ route("admin.projects.show", $project) }}" class="d-block img-preview"><img class="img-fluid" src="{{$project->image}}" alt=""></a></td>
+                        {{-- Date --}}
+                        <td class="d-none d-lg-table-cell">{{ formatDate($project->created_on) }}</td>
+                        {{-- Action Button --}}
+                        <td>
+                            <div class="d-flex gap-2 flex-wrap justify-content-center text-center align-items-center">
+
+                                    <a class="btn btn-light" href="{{ route("admin.projects.show", $project->slug) }}"><i class="fa-solid fa-eye"></i></a>
+
+                                    <a class="btn btn-secondary" href="{{ route("admin.projects.edit", $project->slug) }}"><i class="fa-solid fa-pencil"></i></a>
+                                    <form class="m-0 p-0 d-inline-block" action="{{ route("admin.projects.destroy", $project->slug) }}" method="POST">
+                                        @method("DELETE")
+                                        @csrf
+                                        <button class="btn btn-danger delete-button" data-item-title="{{$project->name}}" type="submit"><i class="fa-solid fa-eraser"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            {{-- {{$technology->links("vendor.pagination.bootstrap-5")}} --}}
         </div>
-    </div>
-    <div class="d-flex justify-content-center gap-3">
-        <a class="btn btn-secondary" href="{{ route("admin.projects.edit", $project->slug) }}"><i class="fa-solid fa-pencil"></i></a>
-        <form action="{{ route("admin.projects.destroy", $project->slug) }}" method="POST">
-            @method("DELETE")
-            @csrf
-            <button class="btn btn-danger delete-button" data-item-title="{{$project->name}}" type="submit"><i class="fa-solid fa-eraser"></i></button>
-        </form>
     </div>
 </div>
 @include("partials.delete-modal")

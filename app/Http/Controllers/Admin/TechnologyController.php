@@ -83,7 +83,7 @@ class TechnologyController extends Controller
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
         $data = $request->validated();
-        $data["slug"] = Str::slug($request->repo_name, "-");
+        $data["slug"] = Str::slug($request->name, "-");
 
         if ($request->hasFile("image")){
             if ($technology->image) {

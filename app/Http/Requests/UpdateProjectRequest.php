@@ -30,6 +30,8 @@ class UpdateProjectRequest extends FormRequest
             'image' => [""],
             'created_on' => ["required", "date_format:Y-m-d"],
             "description" => ["nullable"],
+            "fe_be_oriented" => ["nullable"],
+            "technology_id" => ["nullable"],
         ];
     }
 
