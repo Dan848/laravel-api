@@ -88,6 +88,37 @@ Modifica {{$project->name}}
                         </div>
                     </div>
                 </div>
+                <!-- TECHNOLOGY & FRONT-END/BACK-END -->
+                <div class="row my-3">
+                    <div class="form-floating col-12 col-md-6">
+                        <select class="form-select" name="technology_id" id="technology_id" aria-label="Realizzato con">
+                        <option value="">Seleziona tecnologia principale</option>
+                        @foreach ($technologies as $technology)
+
+                    <option value="{{ $technology->id }}"
+                        {{ $technology->id == $project->technology->id ? 'selected' : '' }}>
+                        {{ $technology->name }}
+                    </option>
+
+                        @endforeach
+                        </select>
+                        <label for="floatingSelect">Realizzato con</label>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex justify-content-evenly align-items-center">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="fe_be_oriented" id="fe_be_oriented_fe" value="1" {{$project->fe_be_oriented ? "checked" : ""}}>
+                            <label class="form-check-label" for="fe_be_oriented_fe">
+                                Front-end
+                            </label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="fe_be_oriented" value="0" id="fe_be_oriented_be" {{$project->fe_be_oriented ? "" : "checked"}}>
+                            <label class="form-check-label" for="fe_be_oriented_be">
+                                Back-end
+                            </label>
+                        </div>
+                    </div>
+                </div>
                 <!-- DESCRIPTION -->
                 <div class="form-floating mb-3">
                     <textarea id="description" class="form-control h-100 @error('description') is-invalid @enderror" name="description" rows="4" cols="3" autofocus>{{ $project->description }}</textarea>
